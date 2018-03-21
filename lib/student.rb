@@ -31,13 +31,12 @@ class Student
   end
 
   def self.create
-    def self.all # retrieves all the rows from the "Students" database
     sql = <<-SQL
       SELECT *
       FROM students
     SQL
 
-    DB[:conn].execute(sql).map do |row| 
+    DB[:conn].execute(sql).map do |row|
       self.new_from_db(row)
     end
   end
