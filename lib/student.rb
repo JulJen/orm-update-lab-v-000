@@ -31,16 +31,6 @@ class Student
     DB[:conn].execute(sql)
   end
 
-  def self.create(name, grade)
-    new_student = self.new
-    new_student.id = name[0], grade[0]
-    new_student.name = name[1], grade[1]
-    new_student.grade = name[2], grade[2]
-
-    new_student
-  end
-
-
   def update
     sql = "UPDATE students SET name=?"
     DB[:conn].execute(sql, self.name)
