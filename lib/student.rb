@@ -11,7 +11,7 @@ class Student
     @grade = grade
   end
 
-  def self.create_table
+  def self.create_table #  creates a table and gives table column names that match the attributes of an individual instance of student
     sql = <<-SQL
     CREATE TABLE IF NOT EXISTS students (
       id INTEGER PRIMARY KEY,
@@ -22,5 +22,10 @@ class Student
 
     DB[:conn].execute(sql)
   end 
+
+  def self.drop_table
+    sql = "DROP TABLE IF EXISTS students"
+    DB[:conn].execute(sql)
+  end
 
 end
