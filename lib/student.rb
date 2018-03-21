@@ -12,6 +12,7 @@ class Student
     @grade = grade
   end
 
+
   def self.new_from_db(row)
     new_student = self.new
     new_student.id = row[0]
@@ -20,11 +21,13 @@ class Student
     new_student
   end
 
+
   def self.create(name:, grade:)
     student = Student.new(name, grade)
     student.save
     student
   end
+
 
   def self.create_table
     sql = <<-SQL
