@@ -18,7 +18,7 @@ class Student
     student.id = row[0]
     student.name = row[0]
     student.grade = row[1]
-    new_student
+    # new_student
   end
 
 
