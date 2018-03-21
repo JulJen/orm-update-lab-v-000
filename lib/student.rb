@@ -19,16 +19,10 @@ class Student
     new_student
   end
 
-
-  def self.create
-    sql = <<-SQL
-      SELECT *
-      FROM students
-    SQL
-
-    DB[:conn].execute(sql).map do |row|
-      self.new_from_db(row)
-    end
+  def self.create(name:, grade:)
+    student = Student.new(name, grade)
+    student.save
+    student
   end
 
   def self.create_table
